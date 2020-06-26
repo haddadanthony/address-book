@@ -12,3 +12,8 @@
 
 ## • Run the server
 > `symfony server:start`
+
+---
+
+## • Home Page URL
+> `localhost:8000/contact`
