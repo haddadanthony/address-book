@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	{% for message in app.flashes('success') %}
+		<div class=" alert alert-success">
+			{{message}}
+		</div>
+	{% endfor %}
+	<div class="container d-flex flex-row p-5 flex-wrap">
+		{% for contact in contacts %}
+			<div class="card m-3 p-3">
+				<div class="card-body">
+					<img src={{contact.getImgSrc()}} style="width: 150px; height: 150px" alt="contact-image" class="card-img-top">
+					<h3 class="card-title">{{contact.getFirstName()|capitalize}}
+						{{contact.getLastName()|capitalize}}</h3>
+					<p class="card-text">{{contact.getPhoneNumber()}}</p>
+                    <a href={{path('show', {id: contact.getId()})}} class="btn btn-success btn-block">View More</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
